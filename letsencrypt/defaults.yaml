@@ -5,6 +5,7 @@ letsencrypt:
   pkgs:
     - python-certbot-apache
   service: certbot.timer
+  path: /usr/bin/
   # Only used for the git install method (use_package: false)
   cli_install_dir: /opt/letsencrypt
   # Only used for the git install method (use_package: false). If you want to

@@ -5,12 +5,12 @@
 
 {% if letsencrypt.use_package %}
   # Renew checks if the cert exists and needs to be renewed
-  {% set check_cert_cmd = '/usr/bin/certbot renew --dry-run --cert-name' %}
-  {% set renew_cert_cmd = '/usr/bin/certbot renew' %}
+  {% set check_cert_cmd = letsencrypt.path ~ 'certbot renew --dry-run --cert-name' %}
+  {% set renew_cert_cmd = letsencrypt.path ~ 'certbot renew' %}
   {% set old_check_cert_cmd_state = 'absent' %}
   {% set old_renew_cert_cmd_state = 'absent' %}
   {% set old_cron_state = 'absent' %}
-  {% set create_cert_cmd = '/usr/bin/certbot' %}
+  {% set create_cert_cmd = letsencrypt.path ~ 'certbot' %}
 
 {% else %}
   {% set check_cert_cmd = '/usr/local/bin/check_letsencrypt_cert.sh' %}
